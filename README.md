@@ -18,9 +18,9 @@ themesディレクトリの中にmy_themeがありますが、そこがgulp sass
 
 例えばorenothemeとしたら、変更するのは３箇所、
 
-1.themesのディレクトリしたのmy_themeの名前をorenothemeに変更
-2.gulpfile.jsの20行目のmy_themeをorenothemeに変更
-3.config.tomlの4行目をorenothemeに変更
+1. themesのディレクトリしたのmy_themeの名前をorenothemeに変更
+2. gulpfile.jsの20行目のmy_themeをorenothemeに変更
+3. config.tomlの4行目をorenothemeに変更
 
 そうです。たったこれだけ。
 
@@ -41,7 +41,7 @@ hugoがwatchしてくれています。
 image minとか使うのであれば、gulpfile.jsをゴニョってください。coffeeとかも同様です。
 gulpはワードプレスくらい。hugoは初めてなので、よくわかってないことありますが、何かあれば、連絡ください！押忍！
 
-###　注意点
+### 注意点
 cssファイルに同じ名前を使っているとchromeだとキャッシュしているファイルが呼び出されてしまいましたので、開発者ツールのnetworkからdisable cacheをチェックしておくとよいです。
 
 ## gulpfile.jsの中のタスク、hugorebuildについて
