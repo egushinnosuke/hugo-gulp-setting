@@ -10,14 +10,14 @@ $ git clone https://github.com/egushinnosuke/hugo-gulp-setting.git
 もしくは
 download
 
-これですでにプロジェクトディレクトなので、hugo-gulp-setting-masterを適当な名前にご自由に変えてください。
+このフォルダ自体がすでにプロジェクトディレクトなので、hugo-gulp-setting-masterを適当な名前にご自由に変えてください。
 
 ### DLして変更する点は３箇所
 themesディレクトリの中にmy_themeがありますが、そこがgulp sassやjsのビルド先のテーマになっています。
 テーマの名前をmy_themeから変えてもよいです。
 
-例えばorenothemeとしたら、
-変更するのは３箇所、
+例えばorenothemeとしたら、変更するのは３箇所、
+
 1.themesのディレクトリしたのmy_themeの名前をorenothemeに変更
 2.gulpfile.jsの20行目のmy_themeをorenothemeに変更
 3.config.tomlの4行目をorenothemeに変更
@@ -25,7 +25,7 @@ themesディレクトリの中にmy_themeがありますが、そこがgulp sass
 そうです。たったこれだけ。
 
 ## srcの中にjsとscssディレクトリがあるよ
-この中のファイルをゴニョゴニョします。
+srcフォルダの中のファイルをゴニョゴニョします。
 
 ## 動かし方
 1. コマンドラインで　$ hugo server
@@ -40,3 +40,13 @@ hugoがwatchしてくれています。
 
 image minとか使うのであれば、gulpfile.jsをゴニョってください。coffeeとかも同様です。
 gulpはワードプレスくらい。hugoは初めてなので、よくわかってないことありますが、何かあれば、連絡ください！押忍！
+
+###　注意点
+cssファイルに同じ名前を使っているとchromeだとキャッシュしているファイルが呼び出されてしまいましたので、開発者ツールのnetworkからdisable cacheをチェックしておくとよいです。
+
+## gulpfile.jsの中のタスク、hugorebuildについて
+
+これは、テンプレートディレクトリのhtmlファイルの１つだけを上書き保存してるだけのタスクです。
+なんでこんなタスクがあるのかというと、hugo serverでwatchしてる時に、staticsのcssファイルだけの更新では、ブラウザがリロードされず、表示が変更されなかったからです。
+
+一方、テーマ内のindex.htmlを変更するとbuildされてreloadされるので、gulpのタスクに追加しています。
